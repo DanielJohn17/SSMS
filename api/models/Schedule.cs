@@ -10,7 +10,7 @@ namespace api.models
     public class Schedule
     {
         public int Id { get; set; }
-        public int GradeLevel { get; set; }
+        public string GradeLevel { get; set; } = string.Empty;
         public int TimeSlot { get; set; }
         public string Room { get; set; } = string.Empty;
         public int? SectionId { get; set; }
