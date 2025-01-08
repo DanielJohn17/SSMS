@@ -12,7 +12,7 @@ namespace api.models
         public int Id { get; set; }
         [Column(TypeName = "decimal(3, 2)")]
         public double TotalMarks { get; set; }
-        public DateTime DateSubmitted { get; set; }
+        public DateTime DateSubmitted { get; set; } = DateTime.Now;
         public string? TeacherId { get; set; }
         public string? StudentId { get; set; }
         public int? CourseId { get; set; }
