@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace api.models
 {
-    public class Administrator : AppUser
+    public class AppUser : IdentityUser
     {
     }
 }

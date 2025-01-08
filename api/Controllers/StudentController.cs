@@ -14,10 +14,10 @@ namespace api.Controllers
     [ApiController]
     public class StudentController : ControllerBase
     {
-        private readonly UserManager<Student> _userManager;
-        private readonly SignInManager<Student> _signInManager;
+        private readonly UserManager<AppUser> _userManager;
+        private readonly SignInManager<AppUser> _signInManager;
 
-        public StudentController(UserManager<Student> userManager, SignInManager<Student> signInManager)
+        public StudentController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;

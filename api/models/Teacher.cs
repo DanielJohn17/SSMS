@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace api.models
 {
-    public class Teacher : IdentityUser
+    public class Teacher : AppUser
     {
         public List<Attendance> Attendances { get; set; } = new List<Attendance>();
         public List<Course> Courses { get; set; } = new List<Course>();

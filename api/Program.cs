@@ -31,7 +31,7 @@ builder.Services.AddDbContext<ApplicationDBContext>(options =>
     }
 });
 
-builder.Services.AddIdentity<Teacher, IdentityRole>(options => {
+builder.Services.AddIdentity<AppUser, IdentityRole>(options => {
     options.Password.RequireDigit = true;
     options.Password.RequireLowercase = true;
     options.Password.RequireUppercase = true;
@@ -40,23 +40,6 @@ builder.Services.AddIdentity<Teacher, IdentityRole>(options => {
 })
 .AddEntityFrameworkStores<ApplicationDBContext>();
 
-builder.Services.AddIdentity<Student, IdentityRole>(options => {
-    options.Password.RequireDigit = true;
-    options.Password.RequireLowercase = true;
-    options.Password.RequireUppercase = true;
-    options.Password.RequireNonAlphanumeric = false;
-    options.Password.RequiredLength = 8;
-})
-.AddEntityFrameworkStores<ApplicationDBContext>();
-
-builder.Services.AddIdentity<Administrator, IdentityRole>(options => {
-    options.Password.RequireDigit = true;
-    options.Password.RequireLowercase = true;
-    options.Password.RequireUppercase = true;
-    options.Password.RequireNonAlphanumeric = false;
-    options.Password.RequiredLength = 8;
-})
-.AddEntityFrameworkStores<ApplicationDBContext>();
 
 var app = builder.Build();
 

@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace api.models
 {
-    public class Student : IdentityUser
+    public class Student : AppUser
     {
         public int? SectionId { get; set; }
         public string? ParentId { get; set; }

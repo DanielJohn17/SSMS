@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace api.models
 {
-    public class Parent : IdentityUser
+    public class Parent : AppUser
     {
         public List<Student> Students { get; set; } = new List<Student>();
         public List<ParentAnnouncement> ParentAnnouncements { get; set; } = new List<ParentAnnouncement>();

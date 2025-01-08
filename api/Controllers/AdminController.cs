@@ -14,10 +14,10 @@ namespace api.Controllers
     [ApiController]
     public class AdminController : ControllerBase
     {
-        private readonly UserManager<Administrator> _userManager;
-        private readonly SignInManager<Administrator> _signInManager;
+        private readonly UserManager<AppUser> _userManager;
+        private readonly SignInManager<AppUser> _signInManager;
 
-        public AdminController(UserManager<Administrator> userManager, SignInManager<Administrator> signInManager)
+        public AdminController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;

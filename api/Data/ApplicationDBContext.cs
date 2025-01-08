@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace api.Data
 {
-    public class ApplicationDBContext : IdentityDbContext<IdentityUser>
+    public class ApplicationDBContext : IdentityDbContext<AppUser>
     {
         public ApplicationDBContext(DbContextOptions options) : base(options)
         {
