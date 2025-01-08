@@ -40,6 +40,24 @@ builder.Services.AddIdentity<Teacher, IdentityRole>(options => {
 })
 .AddEntityFrameworkStores<ApplicationDBContext>();
 
+builder.Services.AddIdentity<Student, IdentityRole>(options => {
+    options.Password.RequireDigit = true;
+    options.Password.RequireLowercase = true;
+    options.Password.RequireUppercase = true;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequiredLength = 8;
+})
+.AddEntityFrameworkStores<ApplicationDBContext>();
+
+builder.Services.AddIdentity<Administrator, IdentityRole>(options => {
+    options.Password.RequireDigit = true;
+    options.Password.RequireLowercase = true;
+    options.Password.RequireUppercase = true;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequiredLength = 8;
+})
+.AddEntityFrameworkStores<ApplicationDBContext>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

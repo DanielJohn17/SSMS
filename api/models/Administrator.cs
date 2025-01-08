@@ -8,5 +8,6 @@ namespace api.models
 {
     public class Administrator : IdentityUser
     {
+        
     }
 }
