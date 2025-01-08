@@ -64,5 +64,21 @@ namespace api.Controllers
             await _scheduleRepo.CreateAsync(scheduleModel);
             return CreatedAtAction(nameof(GetBySectionId), new { id = scheduleModel.Id }, scheduleModel.ToScheduleDto());
         }
+
+        // Update will be implemented later
+
+        [HttpDelete("{id:int}")]
+        public async Task<IActionResult> Delete([FromRoute] int id)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var scheduleModel = await _scheduleRepo.DeleteAsync(id);
+
+            if (scheduleModel == null)
+                return NotFound();
+
+            return NoContent();
+        }
     }
 }
