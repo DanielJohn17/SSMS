@@ -49,7 +49,7 @@ namespace api.Controllers
             return Ok(schedule.ToScheduleDto());
         }
 
-        [HttpPost("{sectionId:int}")]
+        [HttpPut("{sectionId:int}")]
         public async Task<IActionResult> Create([FromRoute] int sectionId, [FromBody] CreateScheduleDto scheduleDto)
         {
             if (!ModelState.IsValid)
