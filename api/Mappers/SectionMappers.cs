@@ -19,7 +19,7 @@ namespace api.Mappers
             };
         }
 
-        public static Section ToSection(this CreateSectionDto createSectionDto)
+        public static Section ToSectionFromCreateSectionDto(this CreateSectionDto createSectionDto)
         {
             return new Section
             {
