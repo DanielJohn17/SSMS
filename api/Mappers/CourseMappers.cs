@@ -16,8 +16,6 @@ namespace api.Mappers
                 Id = course.Id,
                 Name = course.Name,
                 TeacherId = course.TeacherId,
-                Attendances = course.Attendances,
-                Grades = course.Grades
             };
         }
 
