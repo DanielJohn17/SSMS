@@ -24,6 +24,9 @@ namespace api.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllCourses()
         {
+            if(!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             var courses = await _courseRepo.GetAllAsync();
             return Ok(courses);
         }

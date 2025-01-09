@@ -24,6 +24,9 @@ namespace api.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             var announcements = await _announcementRepo.GetAllAsync();
 
             return Ok(announcements);
@@ -32,6 +35,9 @@ namespace api.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             var announcement = await _announcementRepo.GetByIdAsync(id);
 
             if (announcement == null)
@@ -62,6 +68,9 @@ namespace api.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             var announcement = await _announcementRepo.DeleteAsync(id);
 
             if (announcement == null)
