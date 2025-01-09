@@ -43,16 +43,18 @@ namespace api.Controllers
             return Ok(course);
         }
 
-        [HttpPost("{teacherId:string}")]
-        public async Task<IActionResult> CreateCourse([FromBody] CreateCourseDto courseDto, string teacherId)
+        [HttpPost("{teacherId:guid}")]
+        public async Task<IActionResult> CreateCourse([FromBody] CreateCourseDto courseDto, Guid teacherId)
         {
             if(!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            if(!await _teacherRepo.TeacherExistsAsync(teacherId))
+            var teacherIdString = teacherId.ToString();
+
+            if(!await _teacherRepo.TeacherExistsAsync(teacherIdString))
                 return NotFound("Teacher does not exist!");
 
-            var courseModel = courseDto.ToCourseFromCreateCourseDto(teacherId);
+            var courseModel = courseDto.ToCourseFromCreateCourseDto(teacherIdString);
             await _courseRepo.CreateAsync(courseModel);
 
             return CreatedAtAction(nameof(GetCourseById), new { id = courseModel.Id }, courseModel);

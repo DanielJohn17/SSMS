@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace api.Controllers
 {
-    [Route("api/teacher")]
+    [Route("api/parent")]
     [ApiController]
     public class ParentController : ControllerBase
     {
@@ -42,6 +42,7 @@ namespace api.Controllers
             return Ok(
                 new NewUserDto
                 {
+                    Id = user.Id,
                     UserName = user.UserName,
                     Email = user.Email,
                 }
@@ -68,6 +69,7 @@ namespace api.Controllers
                     return Ok(
                         new NewUserDto
                         {
+                            Id = parent.Id,
                             UserName = parent.UserName,
                             Email = parent.Email,
                         }

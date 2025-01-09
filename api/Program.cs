@@ -1,5 +1,7 @@
 using api.Data;
+using api.Interfaces;
 using api.models;
+using api.Repository;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -39,6 +41,14 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options => {
     options.Password.RequiredLength = 8;
 })
 .AddEntityFrameworkStores<ApplicationDBContext>();
+
+builder.Services.AddScoped<ISectionRepository, SectionRepository>();
+builder.Services.AddScoped<ICourseRepository, CourseRepository>();
+builder.Services.AddScoped<ITeacherRepository, TeacherRepository>();
+builder.Services.AddScoped<IParentRepository, ParentRepository>();
+builder.Services.AddScoped<IStudentRepository, StudentRepository>();
+builder.Services.AddScoped<IScheduleRepository, ScheduleRepository>();
+builder.Services.AddScoped<IGradeRepository, GradeRepository>();
 
 
 var app = builder.Build();
