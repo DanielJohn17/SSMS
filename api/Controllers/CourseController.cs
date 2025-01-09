@@ -40,7 +40,7 @@ namespace api.Controllers
                 return NotFound();
             }
 
-            return Ok(course);
+            return Ok(course.ToCourseDto());
         }
 
         [HttpPost("{teacherId:guid}")]
@@ -57,7 +57,7 @@ namespace api.Controllers
             var courseModel = courseDto.ToCourseFromCreateCourseDto(teacherIdString);
             await _courseRepo.CreateAsync(courseModel);
 
-            return CreatedAtAction(nameof(GetCourseById), new { id = courseModel.Id }, courseModel);
+            return CreatedAtAction(nameof(GetCourseById), new { id = courseModel.Id }, courseModel.ToCourseDto());
         }
 
         // Update will be implemented later
